@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install curl -y && \
     mv /var/lib/mediawiki-1.31.1 /var/lib/mediawiki && \
     mv /var/lib/mediawiki-1.31.1/* /var/lib/mediawiki && \
     rm -rf /var/lib/mediawiki/mediawiki-1.31.1 && \
-    ln -s /var/lib/mediawiki /var/wwwhtml/mediawiki
+    ln -s /var/lib/mediawiki /var/www/html/mediawiki
 
 EXPOSE 80
 EXPOSE 443
