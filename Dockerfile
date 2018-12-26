@@ -1,5 +1,7 @@
 FROM mobingi/ubuntu-apache2-php7:7.2
 
+WORKDIR /var/lib/
+
 RUN apt-get update && apt-get install curl -y && \
     mkdir -p /var/lib/mediawiki && \
     curl https://releases.wikimedia.org/mediawiki/1.31/mediawiki-1.31.1.tar.gz \
@@ -9,5 +11,8 @@ RUN apt-get update && apt-get install curl -y && \
     mv /var/lib/mediawiki-1.31.1/* /var/lib/mediawiki && \
     rm -rf /var/lib/mediawiki/mediawiki-1.31.1 && \
     ln -s /var/lib/mediawiki /var/wwwhtml/mediawiki
+
+EXPOSE 80
+EXPOSE 443
 
 CMD ["apache2ctl","-D","FOREGROUND"]
